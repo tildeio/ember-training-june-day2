@@ -74,12 +74,17 @@
             <span class="now-playing-artist">{{album.artist}}</span>
           </p>
           <div class="now-playing-player">
+            {{audio-player}}
           </div>
         </div>
       {{else}}
         <span class="now-playing-empty">Select a song to start playing.</span>
       {{/if}}
       </footer>
+    </script>
+
+    <script type="text/x-handlebars" id="components/audio-player">
+      <audio></audio>
     </script>
 
     <div id="qunit" style="display: none"></div>

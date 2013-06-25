@@ -37,6 +37,10 @@ App.Album = Ember.Object.extend({
 
 App.Song = Ember.Object.extend();
 
+App.AudioPlayerComponent = Ember.Component.extend({
+  classNames: 'audio-control'
+});
+
 Ember.Handlebars.helper('format-duration', function(seconds) {
   var minutes = Math.floor(seconds/60);
   var remainingSeconds = seconds % 60;
