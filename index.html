@@ -85,6 +85,11 @@
 
     <script type="text/x-handlebars" id="components/audio-player">
       <audio {{bindAttr src=src}} autoplay></audio>
+      {{#if isPlaying}}
+        <button class="pause" {{action 'pause'}}>❙❙</button>
+      {{else}}
+        <button class="play" {{action 'play'}}>▶</button>
+      {{/if}}
     </script>
 
     <div id="qunit" style="display: none"></div>
