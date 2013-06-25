@@ -38,7 +38,33 @@ App.Album = Ember.Object.extend({
 App.Song = Ember.Object.extend();
 
 App.AudioPlayerComponent = Ember.Component.extend({
-  classNames: 'audio-control'
+  classNames: 'audio-control',
+
+  duration: 0,
+  currentTime: 0,
+  isLoaded: false,
+
+  didInsertElement: function() {
+    var $audio = this.$('audio'),
+        component = this;
+
+    $audio.on('loadedmetadata', function() {
+      component.set('duration', Math.floor(this.duration));
+      component.set('isLoaded', true);
+    });
+
+    $audio.on('timeupdate', function() {
+      component.set('currentTime', Math.floor(this.currentTime));
+    });
+
+    $audio.on('play', function() {
+      component.set('isPlaying', true);
+    });
+
+    $audio.on('pause', function() {
+      component.set('isPlaying', false);
+    });
+  }
 });
 
 Ember.Handlebars.helper('format-duration', function(seconds) {

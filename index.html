@@ -74,7 +74,7 @@
             <span class="now-playing-artist">{{album.artist}}</span>
           </p>
           <div class="now-playing-player">
-            {{audio-player}}
+            {{audio-player src=url}}
           </div>
         </div>
       {{else}}
@@ -84,7 +84,7 @@
     </script>
 
     <script type="text/x-handlebars" id="components/audio-player">
-      <audio></audio>
+      <audio {{bindAttr src=src}} autoplay></audio>
     </script>
 
     <div id="qunit" style="display: none"></div>
