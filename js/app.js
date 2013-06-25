@@ -19,6 +19,8 @@ App.AlbumRoute = Ember.Route.extend({
   }
 });
 
+App.NowPlayingController = Ember.ObjectController.extend();
+
 App.Album = Ember.Object.extend({
   totalDuration: function() {
     return this.get('songs').reduce(function(sum, song) {
